@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\LAB_TH_API.props" />
+</Project>
