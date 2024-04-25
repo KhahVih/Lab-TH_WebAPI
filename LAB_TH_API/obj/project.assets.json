@@ -4528,11 +4528,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\khanhvinh\\LAPTRINHWEB2_API\\LAB_TH_API\\LAB_TH_API.csproj",
+      "projectUniqueName": "C:\\khanhvinh\\LAPTRINHWEB2_API\\Lab_Th_WEBAPI\\LAB_TH_API\\LAB_TH_API.csproj",
       "projectName": "LAB_TH_API",
-      "projectPath": "C:\\khanhvinh\\LAPTRINHWEB2_API\\LAB_TH_API\\LAB_TH_API.csproj",
+      "projectPath": "C:\\khanhvinh\\LAPTRINHWEB2_API\\Lab_Th_WEBAPI\\LAB_TH_API\\LAB_TH_API.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "C:\\khanhvinh\\LAPTRINHWEB2_API\\LAB_TH_API\\obj\\",
+      "outputPath": "C:\\khanhvinh\\LAPTRINHWEB2_API\\Lab_Th_WEBAPI\\LAB_TH_API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",

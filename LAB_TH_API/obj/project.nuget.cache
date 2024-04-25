@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1JyygcANVEY7YI3UTenhlORN9z51JFwCpWpvcByI816Mu+zbcj1OAMsnunrSx6pXOpMuO/0CAyMasjgbT3AuLw==",
+  "dgSpecHash": "I67UW+Oc8BEL2PcfHlZJnCwfyckYHjb0EX/isFAwIXifWL05Lky7TfL2UNtKaeyQ7F0YfhA7b4Jlz2hPHz5DPA==",
   "success": true,
-  "projectFilePath": "C:\\khanhvinh\\LAPTRINHWEB2_API\\LAB_TH_API\\LAB_TH_API.csproj",
+  "projectFilePath": "C:\\khanhvinh\\LAPTRINHWEB2_API\\Lab_Th_WEBAPI\\LAB_TH_API\\LAB_TH_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
