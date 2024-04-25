@@ -14,116 +14,127 @@ namespace LAB_TH_API.Controllers
     public class BookController : ControllerBase
     {
         protected readonly AppDbContext _dbcontext;
-        private readonly IBookServices _BookServices;
-        public BookController(AppDbContext dbcontext, IBookServices bookServices )
+        private readonly IBookRepository _bookrepository;
+        public BookController(AppDbContext dbcontext, IBookRepository bookServices )
         {
             _dbcontext = dbcontext;
-            _BookServices = bookServices;
+            _bookrepository = bookServices;
+           
         }
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
-            var book = _dbcontext.Books.Include(b => b.publishers).Include(b => b.Book_Author).ThenInclude(a => a.authors).ToList();
-            if (book == null || !book.Any())
-            {
-                return StatusCode(StatusCodes.Status204NoContent, "No books in database.");
-            }
-            var bookDTO = book.Select(book => new BookDTO
-            {
-                Id = book.Id,
-                Title = book.Title,
-                Description = book.Description,
-                IsRead = book.IsRead,
-                DateRead = book.DateRead,
-                Rate = book.Rate,
-                Genre = book.Genre,
-                CoverUrl = book.CoverUrl,
-                DateAdded = book.DateAdded,
-                PublishersName = book.publishers?.Name,
-                AuthorName = book.Book_Author.Select(b => b.authors.FullName).ToList(),
-            }).ToList();
-            
-            return StatusCode(StatusCodes.Status200OK, bookDTO);
+            //var book = _dbcontext.Books.Include(b => b.publishers).Include(b => b.Book_Author).ThenInclude(a => a.authors).ToList();
+            //if (book == null || !book.Any())
+            //{
+            //    return StatusCode(StatusCodes.Status204NoContent, "No books in database.");
+            //}
+            //var bookDTO = book.Select(book => new BookDTO
+            //{
+            //    Id = book.Id,
+            //    Title = book.Title,
+            //    Description = book.Description,
+            //    IsRead = book.IsRead,
+            //    DateRead = book.DateRead,
+            //    Rate = book.Rate,
+            //    Genre = book.Genre,
+            //    CoverUrl = book.CoverUrl,
+            //    DateAdded = book.DateAdded,
+            //    PublishersName = book.publishers?.Name,
+            //    AuthorName = book.Book_Author.Select(b => b.authors.FullName).ToList(),
+            //}).ToList();
+            var allbook = _bookrepository.GetAllBooks();
+            return StatusCode(StatusCodes.Status200OK, allbook);
         }
         [HttpGet("Get-Id")]
         public async Task<IActionResult> GetById( int id)
         {
-            var book = _dbcontext.Books.Where(b => b.Id == id); 
-            if (book == null)
-            {
-                return NotFound();
-            }
-            var bookDTO = book.Select(book => new BookDTO()
-            {
-                Id = book.Id,
-                Title = book.Title,
-                Description = book.Description,
-                IsRead = book.IsRead,
-                DateRead = book.DateRead,
-                Rate = book.Rate,
-                Genre = book.Genre,
-                CoverUrl = book.CoverUrl,
-                DateAdded = book.DateAdded,
-                PublishersName = book.publishers.Name,
-                AuthorName = book.Book_Author.Select(ba => ba.authors.FullName).ToList()
-            });
-            return Ok(bookDTO);
+            //var book = _dbcontext.Books.Where(b => b.Id == id); 
+            //if (book == null)
+            //{
+            //    return NotFound();
+            //}
+            //var bookDTO = book.Select(book => new BookDTO()
+            //{
+            //    Id = book.Id,
+            //    Title = book.Title,
+            //    Description = book.Description,
+            //    IsRead = book.IsRead,
+            //    DateRead = book.DateRead,
+            //    Rate = book.Rate,
+            //    Genre = book.Genre,
+            //    CoverUrl = book.CoverUrl,
+            //    DateAdded = book.DateAdded,
+            //    PublishersName = book.publishers.Name,
+            //    AuthorName = book.Book_Author.Select(ba => ba.authors.FullName).ToList()
+            //});
+            var getbookid = _bookrepository.GetBookById(id);
+            return Ok(getbookid);
         }
         [HttpPost] 
-        public async Task<IActionResult> AddBook( BookDTO bookDTO)
+        public async Task<IActionResult> AddBook(AddBookDTO addbookDTO)
         {
-            var book = new Books
-            {
-                Title = bookDTO.Title,
-                Description = bookDTO.Description,
-                IsRead = bookDTO.IsRead,
-                DateAdded = bookDTO.DateAdded,
-                Rate = bookDTO.Rate,
-                Genre = bookDTO.Genre,
-                CoverUrl = bookDTO.CoverUrl,
-                DateRead = bookDTO.DateRead,
-                PublishersId = bookDTO.PublishersId
-            };
-            _dbcontext.Books.Add(book);
-            await _dbcontext.SaveChangesAsync();
-            return StatusCode(StatusCodes.Status200OK, "Successsfully");
+            //var book = new Books
+            //{
+            //    Title = addbookDTO.Title,
+            //    Description = addbookDTO.Description,
+            //    IsRead = addbookDTO.IsRead,
+            //    DateAdded = addbookDTO.DateAdded,
+            //    Rate = addbookDTO.Rate,
+            //    Genre = addbookDTO.Genre,
+            //    CoverUrl = addbookDTO.CoverUrl,
+            //    DateRead = addbookDTO.DateRead,
+            //    PublishersId = addbookDTO.PublisherId
+            //};
+            //_dbcontext.Books.Add(book);
+            //await _dbcontext.SaveChangesAsync();
+            //foreach(var id in addbookDTO.AuthorIds)
+            //{
+            //    var book_author = new Book_Author()
+            //    {
+            //        BookId = book.Id,
+            //        AuthorId = id
+            //    };
+            //}
+            var addbook = _bookrepository.AddBook(addbookDTO);
+            return StatusCode(StatusCodes.Status200OK, addbook);
         }
+
         [HttpPut("{id}")]
-        
-        public async Task<IActionResult> UpdateBook(int id, [FromBody] BookDTO bookDTO)
+        public async Task<IActionResult> UpdateBook(int id, [FromBody] AddBookDTO bookDTO)
         {
             
-            var book = await _dbcontext.Books.FindAsync(id);
-            if (book == null)
-            {
-                return NotFound();
-            }
-            book.Title = bookDTO.Title;
-            book.Description = bookDTO.Description;
-            book.IsRead = bookDTO.IsRead;
-            book.DateAdded = bookDTO.DateAdded;
-            book.Rate = bookDTO.Rate;
-            book.Genre = bookDTO.Genre;
-            book.CoverUrl = bookDTO.CoverUrl;
-            book.DateRead = bookDTO.DateRead;
-            book.PublishersId = bookDTO.PublishersId;
-            _dbcontext.Entry(book).State = EntityState.Modified;
-            try
-            {
-                await _dbcontext.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!BookExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-            return StatusCode(StatusCodes.Status200OK, "Successsfully");
+            //var book = await _dbcontext.Books.FindAsync(id);
+            //if (book == null)
+            //{
+            //    return NotFound();
+            //}
+            //book.Title = bookDTO.Title;
+            //book.Description = bookDTO.Description;
+            //book.IsRead = bookDTO.IsRead;
+            //book.DateAdded = bookDTO.DateAdded;
+            //book.Rate = bookDTO.Rate;
+            //book.Genre = bookDTO.Genre;
+            //book.CoverUrl = bookDTO.CoverUrl;
+            //book.DateRead = bookDTO.DateRead;
+            //book.PublishersId = bookDTO.PublisherId;
+            //_dbcontext.SaveChanges();
+            //var author = _dbcontext.BooksAuthor.Where( a => a.BookId == id ).ToList();
+            //if (author != null)
+            //{
+            //    _dbcontext.BooksAuthor.RemoveRange(author);
+            //    _dbcontext.SaveChanges();
+            //}
+            //foreach(var authorid in bookDTO.AuthorIds)
+            //{
+            //    var book_author = new Book_Author()
+            //    {
+            //        BookId = id,
+            //        AuthorId = authorid,
+            //    };
+            //}
+            var updatebook = _bookrepository.UpdateBookById(id, bookDTO);
+            return StatusCode(StatusCodes.Status200OK, updatebook);
         }
         private bool BookExists(int id)
         {
@@ -132,14 +143,16 @@ namespace LAB_TH_API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBook (int id)
         {
-            var book = await _dbcontext.Books.FindAsync(id);
-            if (book == null)
-            {
-                return NotFound();
-            }
-            _dbcontext.Books.Remove(book);
-            await _dbcontext.SaveChangesAsync();
-            return StatusCode(StatusCodes.Status200OK, book);
+            //var book = await _dbcontext.Books.FindAsync(id);
+            //if (book == null)
+            //{
+            //    return NotFound();
+            //}
+            //_dbcontext.Books.Remove(book);
+            //await _dbcontext.SaveChangesAsync();
+            //return StatusCode(StatusCodes.Status200OK, book);
+            var deletebook = _bookrepository.DeleteBookById(id);
+            return Ok(deletebook);
         }
     }
 }
