@@ -1,5 +1,6 @@
 using LAB_TH_API.Controllers;
 using LAB_TH_API.Data;
+using LAB_TH_API.Repository;
 using LAB_TH_API.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,7 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<IBookRepository , SQLBookRepository>();
-
+builder.Services.AddTransient<IAuthorRepository , AuthorRepository>();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 

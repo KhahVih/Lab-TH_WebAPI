@@ -31,6 +31,7 @@ namespace LAB_TH_API.Services
                 AuthorName = book.Book_Author.Select(b => b.authors.FullName).ToList()
             }).ToList();
 
+
             return bookDTO;
         }
 
@@ -70,7 +71,7 @@ namespace LAB_TH_API.Services
                 PublishersId = addbookDTO.PublisherId
             };
             _dbcontext.Books.Add(book);
-            _dbcontext.SaveChanges();
+            _dbcontext.SaveChangesAsync();
             foreach (var id in addbookDTO.AuthorIds)
             {
                 var book_author = new Book_Author()
@@ -78,6 +79,8 @@ namespace LAB_TH_API.Services
                     BookId = book.Id,
                     AuthorId = id
                 };
+                _dbcontext.BooksAuthor.Add(book_author);
+                _dbcontext.SaveChangesAsync();
             }
             return addbookDTO;
         }
