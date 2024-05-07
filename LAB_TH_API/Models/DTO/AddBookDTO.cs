@@ -1,7 +1,11 @@
-﻿namespace LAB_TH_API.Models.DTO
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace LAB_TH_API.Models.DTO
 {
     public class AddBookDTO
     {
+        [Required]
+        [MinLength(10)]
         public string? Title { get; set; }
         public string? Description { get; set; }
         public bool IsRead { get; set; }

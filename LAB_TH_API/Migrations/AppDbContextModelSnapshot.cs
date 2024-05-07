@@ -31,7 +31,6 @@ namespace LAB_TH_API.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("FullName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -140,8 +139,8 @@ namespace LAB_TH_API.Migrations
                         {
                             Id = 1,
                             CoverUrl = "url1",
-                            DateAdded = new DateTime(2024, 4, 16, 10, 10, 36, 995, DateTimeKind.Local).AddTicks(7247),
-                            DateRead = new DateTime(2024, 4, 16, 10, 10, 36, 995, DateTimeKind.Local).AddTicks(7233),
+                            DateAdded = new DateTime(2024, 5, 7, 8, 16, 27, 890, DateTimeKind.Local).AddTicks(6176),
+                            DateRead = new DateTime(2024, 5, 7, 8, 16, 27, 890, DateTimeKind.Local).AddTicks(6163),
                             Description = "Description for Book 1",
                             Genre = 1,
                             IsRead = true,
@@ -153,8 +152,8 @@ namespace LAB_TH_API.Migrations
                         {
                             Id = 2,
                             CoverUrl = "url2",
-                            DateAdded = new DateTime(2024, 4, 16, 10, 10, 36, 995, DateTimeKind.Local).AddTicks(7250),
-                            DateRead = new DateTime(2024, 4, 16, 10, 10, 36, 995, DateTimeKind.Local).AddTicks(7249),
+                            DateAdded = new DateTime(2024, 5, 7, 8, 16, 27, 890, DateTimeKind.Local).AddTicks(6180),
+                            DateRead = new DateTime(2024, 5, 7, 8, 16, 27, 890, DateTimeKind.Local).AddTicks(6179),
                             Description = "Description for Book 2",
                             Genre = 2,
                             IsRead = false,
@@ -166,8 +165,8 @@ namespace LAB_TH_API.Migrations
                         {
                             Id = 3,
                             CoverUrl = "url3",
-                            DateAdded = new DateTime(2024, 4, 16, 10, 10, 36, 995, DateTimeKind.Local).AddTicks(7252),
-                            DateRead = new DateTime(2024, 4, 16, 10, 10, 36, 995, DateTimeKind.Local).AddTicks(7251),
+                            DateAdded = new DateTime(2024, 5, 7, 8, 16, 27, 890, DateTimeKind.Local).AddTicks(6183),
+                            DateRead = new DateTime(2024, 5, 7, 8, 16, 27, 890, DateTimeKind.Local).AddTicks(6182),
                             Description = "Description for Book 3",
                             Genre = 2,
                             IsRead = true,

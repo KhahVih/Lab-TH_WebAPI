@@ -120,7 +120,7 @@ namespace LAB_TH_API.Controllers
             return Ok(getbookid);
         }
         [HttpPost] 
-        public async Task<IActionResult> AddBook(AddBookDTO addbookDTO)
+        public async Task<IActionResult> AddBook([FromBody] AddBookDTO addbookDTO)
         {
             //var book = new Books
             //{
@@ -144,8 +144,13 @@ namespace LAB_TH_API.Controllers
             //        AuthorId = id
             //    };
             //}
-            var addbook = _bookrepository.AddBook(addbookDTO);
-            return StatusCode(StatusCodes.Status200OK, addbook);
+            if (ModelState.IsValid)
+            {
+                var addbook = _bookrepository.AddBook(addbookDTO);
+                return StatusCode(StatusCodes.Status200OK, addbook);
+            }
+            else return BadRequest(ModelState);
+           
         }
 
         [HttpPut("{id}")]
