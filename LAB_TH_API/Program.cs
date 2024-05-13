@@ -7,12 +7,20 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Serilog;
 using System.Reflection.Emit;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var _logger = new LoggerConfiguration()
+    .WriteTo.Console()// ghi ra console 
+    .WriteTo.File("Logs/Book_log.txt", rollingInterval: RollingInterval.Minute)
+    .MinimumLevel.Information()
+    .CreateLogger();
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(_logger);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -22,8 +30,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IBookRepository , SQLBookRepository>();
 builder.Services.AddTransient<IAuthorRepository , AuthorRepository>();
 builder.Services.AddTransient<IPublisherRepository , PublisherRepository>();
-
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer
+builder.Services.AddScoped<ITokenRepository , TokenRepository>();
+builder.Services.AddAuthentication(options => {
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme; }
+).AddJwtBearer
  (options => options.TokenValidationParameters = new TokenValidationParameters
  {
      ValidateIssuer = true,
@@ -83,8 +94,9 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddDbContext<AppDbContext>(options =>
+builder.Services.AddDbContext<AuthDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AuthConnection")));
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
@@ -96,7 +108,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

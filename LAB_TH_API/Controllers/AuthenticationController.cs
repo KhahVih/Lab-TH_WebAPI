@@ -1,6 +1,7 @@
 ﻿
 using LAB_TH_API.Models.DTO;
 using LAB_TH_API.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +10,7 @@ namespace LAB_TH_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+   // [Authorize]
     public class AuthenticationController : ControllerBase
     {
         private readonly UserManager<IdentityUser> _userManager;

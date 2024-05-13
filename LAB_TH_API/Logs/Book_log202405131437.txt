@@ -1,0 +1,16 @@
+2024-05-13 14:37:56.261 +07:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-05-13 14:37:56.559 +07:00 [INF] Now listening on: https://localhost:7172
+2024-05-13 14:37:56.559 +07:00 [INF] Now listening on: http://localhost:5077
+2024-05-13 14:37:56.562 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-05-13 14:37:56.564 +07:00 [INF] Hosting environment: Development
+2024-05-13 14:37:56.565 +07:00 [INF] Content root path: C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API
+2024-05-13 14:37:59.044 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7172/swagger/index.html - null null
+2024-05-13 14:37:59.150 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7172/_framework/aspnetcore-browser-refresh.js - null null
+2024-05-13 14:37:59.210 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7172/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 57.9142ms
+2024-05-13 14:37:59.479 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7172/_vs/browserLink - null null
+2024-05-13 14:37:59.707 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7172/_vs/browserLink - 200 null text/javascript; charset=UTF-8 226.8386ms
+2024-05-13 14:37:59.728 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7172/swagger/index.html - 200 null text/html;charset=utf-8 686.6054ms
+2024-05-13 14:37:59.773 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7172/_framework/aspnetcore-browser-refresh.js - null null
+2024-05-13 14:37:59.773 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7172/_vs/browserLink - null null
+2024-05-13 14:37:59.780 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7172/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 6.3239ms
+2024-05-13 14:37:59.794 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7172/_vs/browserLink - 200 null text/javascript; charset=UTF-8 20.7028ms

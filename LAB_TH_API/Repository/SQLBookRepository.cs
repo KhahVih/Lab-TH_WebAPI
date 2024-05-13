@@ -30,8 +30,6 @@ namespace LAB_TH_API.Services
                 PublishersName = book.publishers.Name,
                 AuthorName = book.Book_Author.Select(b => b.authors.FullName).ToList()
             }).ToList();
-
-
             return bookDTO;
         }
 

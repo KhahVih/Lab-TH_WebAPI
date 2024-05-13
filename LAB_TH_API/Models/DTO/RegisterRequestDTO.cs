@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using RequiredAttribute = System.ComponentModel.DataAnnotations.RequiredAttribute;
 namespace LAB_TH_API.Models.DTO
 {
     public class RegisterRequestDTO

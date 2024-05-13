@@ -279,3 +279,12 @@ C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API\bin\Debug\net8.0\Microsof
 C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API\bin\Debug\net8.0\Serilog.dll
+C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API\bin\Debug\net8.0\Serilog.AspNetCore.dll
+C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API\bin\Debug\net8.0\Serilog.Sinks.File.dll
