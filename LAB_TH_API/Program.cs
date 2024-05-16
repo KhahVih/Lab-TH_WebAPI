@@ -1,4 +1,4 @@
-using LAB_TH_API.Controllers;
+﻿using LAB_TH_API.Controllers;
 using LAB_TH_API.Data;
 using LAB_TH_API.Repository;
 using LAB_TH_API.Services;
@@ -27,10 +27,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddHttpClient();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); // Đăng ký IHttpContextAccessor
+builder.Services.AddScoped<IImageRepository, ImageRipository>();
+
 builder.Services.AddTransient<IBookRepository , SQLBookRepository>();
 builder.Services.AddTransient<IAuthorRepository , AuthorRepository>();
 builder.Services.AddTransient<IPublisherRepository , PublisherRepository>();
 builder.Services.AddScoped<ITokenRepository , TokenRepository>();
+
 builder.Services.AddAuthentication(options => {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme; }

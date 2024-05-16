@@ -119,7 +119,8 @@ namespace LAB_TH_API.Controllers
             var getbookid = _bookrepository.GetBookById(id);
             return Ok(getbookid);
         }
-        [HttpPost] 
+        [HttpPost("AddBook")]
+        
         public async Task<IActionResult> AddBook([FromBody] AddBookDTO addbookDTO)
         {
             //var book = new Books

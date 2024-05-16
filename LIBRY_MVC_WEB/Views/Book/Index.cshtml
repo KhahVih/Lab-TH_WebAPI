@@ -1,0 +1,73 @@
+﻿@model IEnumerable<LIBRY_MVC_WEB.Models.DTO.BookDTO>
+
+<h2>List all books</h2>
+
+<form asp-controller="Book" asp-action="Index" method="get">
+    <label>Tìm kiếm sách: </label>
+    <select name="filteron" id="filteron">
+        <option value="title">Tiêu đề</option>
+        <option value="author">Tác giả</option>
+        <option value="publisher">Nhà xuất bản</option>
+    </select>
+    <input type="text" name="filterquery" />
+
+    <label>Sắp xếp: </label>
+    <select name="sortby" id="sortby">
+        <option value="title">Tiêu đề</option>
+        <option value="rate">Đánh giá</option>
+    </select>
+
+    <label>Tăng dần:</label>
+    <input type="radio" name="isacsending" value="true" checked />
+    <label>Giảm dần:</label>
+    <input type="radio" name="isacsending" value="false" />
+
+    <input type="submit" value="search" />
+</form>
+
+<a class="btn btn-primary" asp-controller="Book" asp-action="AddBook">Add new Book</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id code</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publishers</th>
+            <th>Rating</th>
+            <th>Detail</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Title</td>
+                <td>@foreach (var i in item.AuthorName)
+                    {
+                        @i
+
+                        <br />
+                    }</td>
+                <td>@item.PublishersName</td>
+                <td>
+                    @for (var i = 0; i < item.Rate; i++)
+                    {
+                        <i class="fa fa-star" style="color: yellow"></i>
+                    }
+                    @for (var i = item.Rate; i < 5; i++)
+                    {
+                        <i class="fa fa-star-o" style="color: yellow"></i>
+                    }
+                </td>
+                <td><a asp-controller="Book" asp-action="Detail" asp-route-id="@item.Id">Detail</a></td>
+                <td><a asp-controller="Book" asp-action="Edit" asp-route-id="@item.Id">Edit</a></td>
+                <td><a asp-controller="Book" asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" >

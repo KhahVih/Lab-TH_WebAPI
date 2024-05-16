@@ -288,3 +288,6 @@ C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API\bin\Debug\net8.0\Serilog.
 C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API\bin\Debug\net8.0\Serilog.Sinks.Console.dll
 C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
 C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API\bin\Debug\net8.0\Serilog.Sinks.File.dll
+C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API\bin\Debug\net8.0\System.Net.Http.Formatting.dll
+C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll

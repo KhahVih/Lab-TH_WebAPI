@@ -1,0 +1,38 @@
+2024-05-16 08:00:21.816 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7172/api/Book/GetAll?sortby=title&isacsending=False&filteron=title&pageNumber=1&pageSize=100 - null null
+2024-05-16 08:00:21.825 +07:00 [INF] Executing endpoint 'LAB_TH_API.Controllers.BookController.GetAll (LAB_TH_API)'
+2024-05-16 08:00:21.828 +07:00 [INF] Route matched with {action = "GetAll", controller = "Book"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(System.String, Boolean, System.String, System.String, Int32, Int32) on controller LAB_TH_API.Controllers.BookController (LAB_TH_API).
+2024-05-16 08:00:21.834 +07:00 [INF] Get All Book Action Method Was Invoked
+2024-05-16 08:00:21.882 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[Title], [b].[Description], [b].[IsRead], [b].[DateRead], [b].[Rate], [b].[Genre], [b].[CoverUrl], [b].[DateAdded], [p].[Name], [p].[Id], [t].[FullName], [t].[BookId], [t].[AuthorId], [t].[Id]
+FROM [Books] AS [b]
+INNER JOIN [Publishers] AS [p] ON [b].[PublishersId] = [p].[Id]
+LEFT JOIN (
+    SELECT [a].[FullName], [b0].[BookId], [b0].[AuthorId], [a].[Id]
+    FROM [BooksAuthor] AS [b0]
+    INNER JOIN [Authors] AS [a] ON [b0].[AuthorId] = [a].[Id]
+) AS [t] ON [b].[Id] = [t].[BookId]
+ORDER BY [b].[Id], [p].[Id], [t].[BookId], [t].[AuthorId]
+2024-05-16 08:00:21.890 +07:00 [INF] Successfully fetched Book data.
+2024-05-16 08:00:21.891 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LAB_TH_API.Models.DTO.BookDTO, LAB_TH_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-05-16 08:00:21.896 +07:00 [INF] Executed action LAB_TH_API.Controllers.BookController.GetAll (LAB_TH_API) in 64.6179ms
+2024-05-16 08:00:21.903 +07:00 [INF] Executed endpoint 'LAB_TH_API.Controllers.BookController.GetAll (LAB_TH_API)'
+2024-05-16 08:00:21.904 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7172/api/Book/GetAll?sortby=title&isacsending=False&filteron=title&pageNumber=1&pageSize=100 - 200 null application/json; charset=utf-8 87.351ms
+2024-05-16 08:00:25.974 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7172/api/Book/GetAll?sortby=title&isacsending=True&filteron=title&pageNumber=1&pageSize=100 - null null
+2024-05-16 08:00:25.983 +07:00 [INF] Executing endpoint 'LAB_TH_API.Controllers.BookController.GetAll (LAB_TH_API)'
+2024-05-16 08:00:25.984 +07:00 [INF] Route matched with {action = "GetAll", controller = "Book"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(System.String, Boolean, System.String, System.String, Int32, Int32) on controller LAB_TH_API.Controllers.BookController (LAB_TH_API).
+2024-05-16 08:00:25.987 +07:00 [INF] Get All Book Action Method Was Invoked
+2024-05-16 08:00:26.070 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[Title], [b].[Description], [b].[IsRead], [b].[DateRead], [b].[Rate], [b].[Genre], [b].[CoverUrl], [b].[DateAdded], [p].[Name], [p].[Id], [t].[FullName], [t].[BookId], [t].[AuthorId], [t].[Id]
+FROM [Books] AS [b]
+INNER JOIN [Publishers] AS [p] ON [b].[PublishersId] = [p].[Id]
+LEFT JOIN (
+    SELECT [a].[FullName], [b0].[BookId], [b0].[AuthorId], [a].[Id]
+    FROM [BooksAuthor] AS [b0]
+    INNER JOIN [Authors] AS [a] ON [b0].[AuthorId] = [a].[Id]
+) AS [t] ON [b].[Id] = [t].[BookId]
+ORDER BY [b].[Id], [p].[Id], [t].[BookId], [t].[AuthorId]
+2024-05-16 08:00:26.072 +07:00 [INF] Successfully fetched Book data.
+2024-05-16 08:00:26.073 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LAB_TH_API.Models.DTO.BookDTO, LAB_TH_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-05-16 08:00:26.073 +07:00 [INF] Executed action LAB_TH_API.Controllers.BookController.GetAll (LAB_TH_API) in 88.388ms
+2024-05-16 08:00:26.074 +07:00 [INF] Executed endpoint 'LAB_TH_API.Controllers.BookController.GetAll (LAB_TH_API)'
+2024-05-16 08:00:26.076 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7172/api/Book/GetAll?sortby=title&isacsending=True&filteron=title&pageNumber=1&pageSize=100 - 200 null application/json; charset=utf-8 101.5901ms

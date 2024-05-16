@@ -11,6 +11,7 @@ namespace LAB_TH_API.Data
         public DbSet<Authors> Authors { get; set; }
         public DbSet<Publishers> Publishers { get; set; }
         public DbSet<Book_Author> BooksAuthor { get; set;}
+        public DbSet<Image> Images { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

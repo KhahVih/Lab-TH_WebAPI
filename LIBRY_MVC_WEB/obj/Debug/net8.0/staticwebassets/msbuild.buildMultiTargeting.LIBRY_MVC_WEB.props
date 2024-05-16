@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\LIBRY_MVC_WEB.props" />
+</Project>

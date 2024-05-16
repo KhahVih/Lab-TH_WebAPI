@@ -1,0 +1,26 @@
+2024-05-16 08:43:51.559 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7172/api/Book - application/json 256
+2024-05-16 08:43:51.579 +07:00 [INF] Executing endpoint 'LAB_TH_API.Controllers.BookController.AddBook (LAB_TH_API)'
+2024-05-16 08:43:51.591 +07:00 [INF] Route matched with {action = "AddBook", controller = "Book"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddBook(LAB_TH_API.Models.DTO.AddBookDTO) on controller LAB_TH_API.Controllers.BookController (LAB_TH_API).
+2024-05-16 08:43:51.818 +07:00 [ERR] An exception occurred in the database while saving changes for context type 'LAB_TH_API.Data.AppDbContext'.
+System.InvalidOperationException: The value of 'Book_Author.BookId' is unknown when attempting to save changes. This is because the property is also part of a foreign key for which the principal entity in the relationship is not known.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.PrepareToSave()
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.GetEntriesToSave(Boolean cascadeChanges)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+System.InvalidOperationException: The value of 'Book_Author.BookId' is unknown when attempting to save changes. This is because the property is also part of a foreign key for which the principal entity in the relationship is not known.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.PrepareToSave()
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.GetEntriesToSave(Boolean cascadeChanges)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2024-05-16 08:43:51.821 +07:00 [INF] Executing ObjectResult, writing value of type 'LAB_TH_API.Models.DTO.AddBookDTO'.
+2024-05-16 08:43:51.826 +07:00 [INF] Executed action LAB_TH_API.Controllers.BookController.AddBook (LAB_TH_API) in 232.4746ms
+2024-05-16 08:43:51.827 +07:00 [INF] Executed endpoint 'LAB_TH_API.Controllers.BookController.AddBook (LAB_TH_API)'
+2024-05-16 08:43:51.829 +07:00 [INF] Executed DbCommand (66ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (DbType = Boolean), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Books] ([CoverUrl], [DateAdded], [DateRead], [Description], [Genre], [IsRead], [PublishersId], [Rate], [Title])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2024-05-16 08:43:51.829 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7172/api/Book - 200 null application/json; charset=utf-8 269.5367ms

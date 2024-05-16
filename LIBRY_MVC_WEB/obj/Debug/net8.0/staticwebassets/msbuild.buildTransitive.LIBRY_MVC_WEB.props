@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\LIBRY_MVC_WEB.props" />
+</Project>

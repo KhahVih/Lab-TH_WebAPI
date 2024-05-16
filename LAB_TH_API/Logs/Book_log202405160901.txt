@@ -1,0 +1,66 @@
+2024-05-16 09:01:06.400 +07:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-05-16 09:01:06.603 +07:00 [INF] Now listening on: https://localhost:7172
+2024-05-16 09:01:06.604 +07:00 [INF] Now listening on: http://localhost:5077
+2024-05-16 09:01:06.606 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-05-16 09:01:06.606 +07:00 [INF] Hosting environment: Development
+2024-05-16 09:01:06.607 +07:00 [INF] Content root path: C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API
+2024-05-16 09:01:07.004 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7172/swagger/index.html - null null
+2024-05-16 09:01:07.176 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7172/api/Book/GetAll?isacsending=True&pageNumber=1&pageSize=100 - null null
+2024-05-16 09:01:07.196 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7172/swagger/index.html - 200 null text/html;charset=utf-8 193.3747ms
+2024-05-16 09:01:07.211 +07:00 [INF] Executing endpoint 'LAB_TH_API.Controllers.BookController.GetAll (LAB_TH_API)'
+2024-05-16 09:01:07.214 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7172/_vs/browserLink - null null
+2024-05-16 09:01:07.214 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7172/_framework/aspnetcore-browser-refresh.js - null null
+2024-05-16 09:01:07.220 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7172/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 5.254ms
+2024-05-16 09:01:07.239 +07:00 [INF] Route matched with {action = "GetAll", controller = "Book"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(System.String, Boolean, System.String, System.String, Int32, Int32) on controller LAB_TH_API.Controllers.BookController (LAB_TH_API).
+2024-05-16 09:01:07.240 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7172/_vs/browserLink - 200 null text/javascript; charset=UTF-8 25.7881ms
+2024-05-16 09:01:07.352 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7172/swagger/v1/swagger.json - null null
+2024-05-16 09:01:07.373 +07:00 [INF] Get All Book Action Method Was Invoked
+2024-05-16 09:01:07.499 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7172/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 146.7812ms
+2024-05-16 09:01:08.467 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[Title], [b].[Description], [b].[IsRead], [b].[DateRead], [b].[Rate], [b].[Genre], [b].[CoverUrl], [b].[DateAdded], [p].[Name], [p].[Id], [t].[FullName], [t].[BookId], [t].[AuthorId], [t].[Id]
+FROM [Books] AS [b]
+INNER JOIN [Publishers] AS [p] ON [b].[PublishersId] = [p].[Id]
+LEFT JOIN (
+    SELECT [a].[FullName], [b0].[BookId], [b0].[AuthorId], [a].[Id]
+    FROM [BooksAuthor] AS [b0]
+    INNER JOIN [Authors] AS [a] ON [b0].[AuthorId] = [a].[Id]
+) AS [t] ON [b].[Id] = [t].[BookId]
+ORDER BY [b].[Id], [p].[Id], [t].[BookId], [t].[AuthorId]
+2024-05-16 09:01:08.499 +07:00 [INF] Successfully fetched Book data.
+2024-05-16 09:01:08.507 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LAB_TH_API.Models.DTO.BookDTO, LAB_TH_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-05-16 09:01:08.532 +07:00 [INF] Executed action LAB_TH_API.Controllers.BookController.GetAll (LAB_TH_API) in 1288.6632ms
+2024-05-16 09:01:08.537 +07:00 [INF] Executed endpoint 'LAB_TH_API.Controllers.BookController.GetAll (LAB_TH_API)'
+2024-05-16 09:01:08.550 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7172/api/Book/GetAll?isacsending=True&pageNumber=1&pageSize=100 - 200 null application/json; charset=utf-8 1373.653ms
+2024-05-16 09:01:19.733 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7172/api/Book/GetAll?isacsending=True&pageNumber=1&pageSize=100 - null null
+2024-05-16 09:01:19.743 +07:00 [INF] Executing endpoint 'LAB_TH_API.Controllers.BookController.GetAll (LAB_TH_API)'
+2024-05-16 09:01:19.746 +07:00 [INF] Route matched with {action = "GetAll", controller = "Book"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(System.String, Boolean, System.String, System.String, Int32, Int32) on controller LAB_TH_API.Controllers.BookController (LAB_TH_API).
+2024-05-16 09:01:19.751 +07:00 [INF] Get All Book Action Method Was Invoked
+2024-05-16 09:01:19.801 +07:00 [INF] Executed DbCommand (34ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[Title], [b].[Description], [b].[IsRead], [b].[DateRead], [b].[Rate], [b].[Genre], [b].[CoverUrl], [b].[DateAdded], [p].[Name], [p].[Id], [t].[FullName], [t].[BookId], [t].[AuthorId], [t].[Id]
+FROM [Books] AS [b]
+INNER JOIN [Publishers] AS [p] ON [b].[PublishersId] = [p].[Id]
+LEFT JOIN (
+    SELECT [a].[FullName], [b0].[BookId], [b0].[AuthorId], [a].[Id]
+    FROM [BooksAuthor] AS [b0]
+    INNER JOIN [Authors] AS [a] ON [b0].[AuthorId] = [a].[Id]
+) AS [t] ON [b].[Id] = [t].[BookId]
+ORDER BY [b].[Id], [p].[Id], [t].[BookId], [t].[AuthorId]
+2024-05-16 09:01:19.804 +07:00 [INF] Successfully fetched Book data.
+2024-05-16 09:01:19.805 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LAB_TH_API.Models.DTO.BookDTO, LAB_TH_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-05-16 09:01:19.806 +07:00 [INF] Executed action LAB_TH_API.Controllers.BookController.GetAll (LAB_TH_API) in 56.3231ms
+2024-05-16 09:01:19.807 +07:00 [INF] Executed endpoint 'LAB_TH_API.Controllers.BookController.GetAll (LAB_TH_API)'
+2024-05-16 09:01:19.809 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7172/api/Book/GetAll?isacsending=True&pageNumber=1&pageSize=100 - 200 null application/json; charset=utf-8 75.9195ms
+2024-05-16 09:01:36.430 +07:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-05-16 09:01:36.632 +07:00 [INF] Now listening on: https://localhost:7172
+2024-05-16 09:01:36.633 +07:00 [INF] Now listening on: http://localhost:5077
+2024-05-16 09:01:36.635 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-05-16 09:01:36.636 +07:00 [INF] Hosting environment: Development
+2024-05-16 09:01:36.636 +07:00 [INF] Content root path: C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API
+2024-05-16 09:01:38.433 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7172/swagger/index.html - null null
+2024-05-16 09:01:39.255 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7172/swagger/index.html - 200 null text/html;charset=utf-8 823.653ms
+2024-05-16 09:01:39.271 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7172/_framework/aspnetcore-browser-refresh.js - null null
+2024-05-16 09:01:39.281 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7172/_vs/browserLink - null null
+2024-05-16 09:01:39.284 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7172/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 12.8846ms
+2024-05-16 09:01:39.322 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7172/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.819ms
+2024-05-16 09:01:39.432 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7172/swagger/v1/swagger.json - null null
+2024-05-16 09:01:39.571 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7172/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 139.209ms

@@ -1,0 +1,31 @@
+2024-05-16 09:15:06.269 +07:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-05-16 09:15:06.420 +07:00 [INF] Now listening on: https://localhost:7172
+2024-05-16 09:15:06.422 +07:00 [INF] Now listening on: http://localhost:5077
+2024-05-16 09:15:06.426 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-05-16 09:15:06.427 +07:00 [INF] Hosting environment: Development
+2024-05-16 09:15:06.429 +07:00 [INF] Content root path: C:\khanhvinh\LAPTRINHWEB2_API\Lab_Th_WEBAPI\LAB_TH_API
+2024-05-16 09:15:07.015 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7172/swagger/index.html - null null
+2024-05-16 09:15:07.181 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7172/swagger/index.html - 200 null text/html;charset=utf-8 167.6512ms
+2024-05-16 09:15:07.221 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7172/_framework/aspnetcore-browser-refresh.js - null null
+2024-05-16 09:15:07.221 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7172/_vs/browserLink - null null
+2024-05-16 09:15:07.226 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7172/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 4.6805ms
+2024-05-16 09:15:07.258 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7172/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.0233ms
+2024-05-16 09:15:07.670 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7172/swagger/v1/swagger.json - null null
+2024-05-16 09:15:07.862 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7172/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 192.1376ms
+2024-05-16 09:15:19.277 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7172/api/Publisher/GetAll - null null
+2024-05-16 09:15:19.365 +07:00 [INF] Executing endpoint 'LAB_TH_API.Controllers.PublisherController.GetAll (LAB_TH_API)'
+2024-05-16 09:15:19.391 +07:00 [INF] Route matched with {action = "GetAll", controller = "Publisher"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAll() on controller LAB_TH_API.Controllers.PublisherController (LAB_TH_API).
+2024-05-16 09:15:21.885 +07:00 [INF] Executed DbCommand (52ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Name]
+FROM [Publishers] AS [p]
+2024-05-16 09:15:22.003 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[LAB_TH_API.Models.DTO.PublisherDTO, LAB_TH_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-05-16 09:15:22.017 +07:00 [INF] Executed action LAB_TH_API.Controllers.PublisherController.GetAll (LAB_TH_API) in 2616.8116ms
+2024-05-16 09:15:22.019 +07:00 [INF] Executed endpoint 'LAB_TH_API.Controllers.PublisherController.GetAll (LAB_TH_API)'
+2024-05-16 09:15:22.032 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7172/api/Publisher/GetAll - 200 null application/json; charset=utf-8 2754.4766ms
+2024-05-16 09:15:37.044 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7172/api/Image/Upload - multipart/form-data; boundary=----WebKitFormBoundarytjWjpTPwmjeAiIpM 6316711
+2024-05-16 09:15:37.052 +07:00 [INF] Executing endpoint 'LAB_TH_API.Controllers.ImageController.UploadImage (LAB_TH_API)'
+2024-05-16 09:15:37.071 +07:00 [INF] Route matched with {action = "UploadImage", controller = "Image"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UploadImage(LAB_TH_API.Models.DTO.ImageUploadRequestDTO) on controller LAB_TH_API.Controllers.ImageController (LAB_TH_API).
+2024-05-16 09:15:37.231 +07:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2024-05-16 09:15:37.235 +07:00 [INF] Executed action LAB_TH_API.Controllers.ImageController.UploadImage (LAB_TH_API) in 161.1868ms
+2024-05-16 09:15:37.237 +07:00 [INF] Executed endpoint 'LAB_TH_API.Controllers.ImageController.UploadImage (LAB_TH_API)'
+2024-05-16 09:15:37.244 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7172/api/Image/Upload - 400 null text/plain; charset=utf-8 200.5818ms

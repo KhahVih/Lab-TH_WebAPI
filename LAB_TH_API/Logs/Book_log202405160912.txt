@@ -1,0 +1,24 @@
+2024-05-16 09:12:34.120 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7172/api/Image/Upload - multipart/form-data; boundary=----WebKitFormBoundarybqBfXHei40WPwJqm 6316709
+2024-05-16 09:12:34.148 +07:00 [INF] Executing endpoint 'LAB_TH_API.Controllers.ImageController.UploadImage (LAB_TH_API)'
+2024-05-16 09:12:34.158 +07:00 [INF] Route matched with {action = "UploadImage", controller = "Image"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UploadImage(LAB_TH_API.Models.DTO.ImageUploadRequestDTO) on controller LAB_TH_API.Controllers.ImageController (LAB_TH_API).
+2024-05-16 09:12:34.165 +07:00 [INF] Executed action LAB_TH_API.Controllers.ImageController.UploadImage (LAB_TH_API) in 1.9003ms
+2024-05-16 09:12:34.168 +07:00 [INF] Executed endpoint 'LAB_TH_API.Controllers.ImageController.UploadImage (LAB_TH_API)'
+2024-05-16 09:12:34.170 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'LAB_TH_API.Repository.IImageRepository' while attempting to activate 'LAB_TH_API.Controllers.ImageController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method71(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-05-16 09:12:34.184 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7172/api/Image/Upload - 500 null text/plain; charset=utf-8 64.1577ms
+2024-05-16 09:12:34.193 +07:00 [INF] Connection id "0HN3L9LGKOM31", Request id "0HN3L9LGKOM31:00000001": the application completed without reading the entire request body.
